@@ -213,3 +213,12 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
+
+#############
+## Dojo standard stuff
+#############
+src/dojo/
+src/dijit/
+src/dojox/
+src/util/
+

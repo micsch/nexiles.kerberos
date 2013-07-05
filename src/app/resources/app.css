@@ -1,0 +1,72 @@
+/**
+ * If you are developing a project that makes use of Dijit widgets, you will probably want to include the two files
+ * below; otherwise, you can remove them. When building for release, Dojo will automatically combine all of your
+ * @imported CSS files into a single file.
+ *
+ * It is highly, highly recommended that you develop your CSS using Stylus: http://learnboost.github.com/stylus/.
+ */
+
+@import '../../dojo/resources/dojo.css';
+@import '../../dijit/themes/claro/claro.css';
+
+html, body {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    font-family: Segoe UI;
+    font-size: 0.9em;
+}
+
+#preloader {
+    width:100%; height:100%; margin:0; padding:0;
+    text-align: center;
+    background: url('images/loading.gif') no-repeat center center;
+    position: absolute;
+    z-index: 999;
+    background-color: white;
+}
+.preloader-note {
+    position: relative;
+    top: 54%;
+    color: #8F8F8F;
+}
+
+#appLayout {
+    height: 100%;
+}
+#leftCol {
+    width: 14em;
+}
+ 
+.claro .demoLayout .edgePanel {
+    background-color: #d0e9fc;
+}
+ 
+#viewsChart {
+    width: 550px;
+    height: 550px;
+}
+
+.topPanel {
+    height: 35px;
+}
+
+.leftPanel {
+    
+}
+
+.bottomPanel {
+    height: 30px;
+}
+
+.header-info {
+    float:left;
+    font-size:0.9em;
+    margin-top:10px;
+    margin-left:3px;
+}
+
+#main_content_slot {
+	position: absolute;
+}
