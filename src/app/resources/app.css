@@ -70,3 +70,33 @@ html, body {
 #main_content_slot {
 	position: absolute;
 }
+
+#searchArea {
+    top:10px;
+    width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    margin-top:10px;
+    margin-bottom: 20px;
+}
+
+#resultContentPane {
+    position: relative;
+    top: -25px;
+}
+
+#productResultContentPane {
+    position: relative;
+    top: -25px;
+}
+
+#searchField {
+    height: 30px;
+    font-size:large;
+}
+
+#cmdSearch {
+    height: 21px;
+    width: 100px;
+    padding-top:6px;
+}

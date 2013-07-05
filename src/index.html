@@ -29,6 +29,7 @@
     <script data-dojo-config="async: 1, tlmSiblingOfDojo: 0, isDebug: 1, parseOnLoad: 1" src="dojo/dojo.js"></script>
     <script>
 	    require([
+			"dijit/layout/LayoutContainer",
 	        "dijit/layout/BorderContainer",
 	        "dijit/layout/TabContainer",
 	        "dijit/layout/ContentPane",
@@ -36,26 +37,60 @@
 	        "dijit/_editor/plugins/TextColor",
 	        "dijit/_editor/plugins/AlwaysShowToolbar",
 	        "dojo/dnd/Source",
-	        "dojo/domReady!"
+	        "dojo/domReady!",
+	        "dijit/Toolbar",
+            "dijit/form/DropDownButton",
+            "dijit/TooltipDialog",
+            "dijit/form/Button",
+            "dijit/form/TextBox",
+            "dijit/form/Select"
 	    ]);
 	</script>
 
     <!-- Load the loader configuration script. Note that this module ID is hard-coded in build.sh in order to provide
-         an optimised build that loads as few as one script for the entire application. If you change the name or
+         an optimized build that loads as few as one script for the entire application. If you change the name or
          location of this module, you will need to update build.sh too. -->
     <div id="preloader"><span class="preloader-note">Loading nexiles.kerberos . . .</span></div>
     <script src="app/run.js" defer></script>
     <div id="appLayout" data-dojo-type="dijit/layout/BorderContainer" data-dojo-props="design: 'headline'">
         <div class="centerPanel" data-dojo-type="dijit/layout/TabContainer" data-dojo-props="region: 'center', tabPosition: 'top'">
 		    
-		    <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="title: 'Projects'">
-		        <div id="main_content_slot"></div>
+		    <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="title: 'Find Projects'">
+	        	<div id="searchArea">
+                    <div id="logo"><img src="app/resources/images/nexiles_logo.png"/></div>
+                    <div style="padding-left:110px;">
+                        <div id="searchField" class="searchField" name="searchField" style="width: 300px;padding-left:5px;" data-dojo-type="dijit.form.TextBox" data-dojo-props="trim:true, propercase:true"></div>
+                        <button type="button" data-dojo-type="dijit.form.Button" data-dojo-props="showLabel:'true'" id="cmdSearch">Content Search</button>
+                    </div>
+                    <img id="loadingStatusIndicator" src="app/resources/images/loadingAnimation.gif" style="position:relative;left:135px;top:-30px;visibility:hidden;" />
+                </div>
+                <div id="resultContentPane" data-dojo-type="dijit.layout.ContentPane">
+                    <div>
+					<div id="searchToolbar" data-dojo-type="dijit.Toolbar">
+		                <button id="cmdFinderDetails" class="cmdSearch" data-dojo-type="dijit.form.Button" data-dojo-props="showLabel:'true', iconClass: 'detailsIconDefinition'">
+		                    Show Details
+		                </button>
+		                
+		                <span style="float:right">
+                        	<label for="objTypeSelector">Search for:</label>
+                           	<select id="objTypeSelector" data-dojo-type="dijit.form.Select">
+                            	<option value="projects" selected="selected">Projects</option>
+                               	<option value="documents">Documents</option>
+                               	<option value="drawings">Drawings</option>
+                           	</select>
+                        </span>
+		            </div>
+                    </div>
+                    <div id="resultListSlot">&#160;</div>
+                    <div id="maxIndicator">&#160;</div>
+                </div>
 		    </div>
 		    
 		    <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="title: 'About'">
 		        <h4>nexiles.kerberos</h4>
 		        <div>
 				Kerberos is a multi-headed (usually three-headed) dog, or "hellhound" which guards the gates of the Underworld, to prevent those who have crossed the river Styx from ever escaping
+				<br/><img src="app/resources/images/hellhound.png"/>
 				</div>
 		    </div>
 		</div>
@@ -63,7 +98,7 @@
             <span class="header-info">
                 nexiles.kerberos 0.1
             </span>
-            <div style="margin:auto;"><img id="application_logo" align="right" src="app/resources/images/nexiles_logo.png" /></div>
+            <div style="margin:auto;"><img id="application_logo" align="right" src="app/resources/images/nexiles_logo_small.png" /></div>
         </div>
     </div>
 </body>

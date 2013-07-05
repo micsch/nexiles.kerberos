@@ -39,7 +39,7 @@ define([ 'dojo/has', 'require' ], function (has, require) {
 		 * require just `dojo/domReady`, it would load that module just like any other module, without the special
 		 * plugin functionality.
 		 */
-		require([ './Dialog', 'dojo/on', 'dijit/registry', 'dojo/_base/fx', 'dojo/dom-style', 'dojo/domReady!' ], function (Dialog, on, registry, fx, style) {
+		require([ './FileUtils', 'dojo/_base/fx', 'dojo/dom-style', 'dojo/domReady!' ], function (FileUtils, fx, style) {
             fx.fadeOut({
                 node:"preloader",
                 duration:800,
@@ -47,7 +47,10 @@ define([ 'dojo/has', 'require' ], function (has, require) {
                     style.set("preloader", "display", "none"); 
                 }
             }).play();
-
+            
+            var fileutils = new FileUtils("test");
+            console.log(fileutils.getProjects());
+            
 		});
 	}
 	else {
